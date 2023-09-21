@@ -50,14 +50,14 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(498, 99);
+            this.txtName.Location = new System.Drawing.Point(492, 142);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(143, 26);
             this.txtName.TabIndex = 1;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(551, 201);
+            this.button1.Location = new System.Drawing.Point(545, 183);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(90, 36);
             this.button1.TabIndex = 2;
@@ -78,7 +78,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(377, 104);
+            this.label2.Location = new System.Drawing.Point(371, 147);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 20);
             this.label2.TabIndex = 4;
@@ -102,7 +102,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(871, 643);
+            this.ClientSize = new System.Drawing.Size(688, 468);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -111,6 +111,7 @@
             this.Controls.Add(this.listBox1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Activated += new System.EventHandler(this.Form1_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.graphBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

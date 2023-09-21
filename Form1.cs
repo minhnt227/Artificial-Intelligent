@@ -40,6 +40,11 @@ namespace Graph_Coloring
             try
             {
                 Country select = listBox1.SelectedItem as Country;
+                if (listBox1.SelectedItem is null)
+                {
+                    MessageBox.Show("Select something bro :<", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
                 select.CShow();
             }
             catch (NullReferenceException ex) 

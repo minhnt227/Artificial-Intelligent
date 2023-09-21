@@ -58,6 +58,7 @@ namespace Graph_Coloring
             }
             CDetail.color = int.Parse(txtcolorD.Text);
             CDetail.name = txtNameD.Text;
+            MessageBox.Show("Edit Successful!","Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
     }
 }
