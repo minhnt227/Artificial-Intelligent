@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="label4.Text" xml:space="preserve">
-    <value>1. Nhập tên đỉnh (1 đất nước trong bản đồ)
+    <value>Để load data có sẵn, bấm nút Load Graph để load một bản đồ mẫu chưa được tô màu.
+1. Nhập tên đỉnh (1 đất nước trong bản đồ)
 2. Bấm create để tạo đỉnh với giá trị mặc định (màu: 0, hàng xóm: 0)
-3. bấm vào từng đỉnh trong List Box bên trái và bấm view để xem chi tiết
+3. bấm vào từng đỉnh trong List Box bên trái và bấm view để xem chi tiết (hoặc nháy đúp chuột)
 và edit hàng xóm của từng đỉnh. Bấm OK để lưu dữ liệu đã nhập
 4. Bấm nút SaveGraph để lưu bản đồ ban đầu chưa tô màu vào file Map Data
-5. Bấm nút Color this Graph để tô màu cho bản đồ và lưu dữ liệu vào file Map Colored
-</value>
+5. Bấm nút Color this Graph để tô màu cho bản đồ và lưu dữ liệu vào file Map Colored</value>
   </data>
   <metadata name="graphBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>

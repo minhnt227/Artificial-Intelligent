@@ -39,8 +39,8 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnColor = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.graphBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnLoad = new System.Windows.Forms.Button();
+            this.graphBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.graphBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -125,31 +125,31 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(267, 253);
+            this.label4.Location = new System.Drawing.Point(248, 223);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(605, 120);
+            this.label4.Size = new System.Drawing.Size(670, 140);
             this.label4.TabIndex = 12;
             this.label4.Text = resources.GetString("label4.Text");
-            // 
-            // graphBindingSource
-            // 
-            this.graphBindingSource.DataSource = typeof(Graph_Coloring.Models.Graph);
             // 
             // btnLoad
             // 
             this.btnLoad.Location = new System.Drawing.Point(229, 389);
             this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(102, 36);
+            this.btnLoad.Size = new System.Drawing.Size(125, 36);
             this.btnLoad.TabIndex = 13;
             this.btnLoad.Text = "Load Graph";
             this.btnLoad.UseVisualStyleBackColor = true;
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
+            // graphBindingSource
+            // 
+            this.graphBindingSource.DataSource = typeof(Graph_Coloring.Models.Graph);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(892, 459);
+            this.ClientSize = new System.Drawing.Size(933, 459);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnColor);
