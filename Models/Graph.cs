@@ -26,11 +26,6 @@ namespace Graph_Coloring.Models
                 StreamWriter writer = new StreamWriter(output);
                 foreach (Country c in CountryList)
                 {
-
-                    //foreach (Country s in c.neighbor)
-                    //{
-                        MessageBox.Show(c.name);
-                    //}
                     writer.WriteLine("Country: {0} .\tColor: {1}",c.name , c.color);
                     writer.WriteLine("\t\tNeighbor List ");
                     foreach (Country nb in c.neighbor)
@@ -49,10 +44,9 @@ namespace Graph_Coloring.Models
                 MessageBox.Show(ex.Message);
             }
         }
-        // ??? :D ???
         public static void LoadFile()
         {
-            string filename = "MapSource";
+            string filename = "../../Models/MapData";
             try
             {
                 FileStream input = new FileStream (filename, FileMode .Open, FileAccess.Read);
