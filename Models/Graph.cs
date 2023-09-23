@@ -70,17 +70,18 @@ namespace Graph_Coloring.Models
                         string[] list = line.Split(' ');
                         country.name = list[1]; country.color = int.Parse(list[3]);
                         line = reader.ReadLine();
-                        while ((line = reader.ReadLine()) != null && !line.StartsWith("Country"))
+                        while ((line = reader.ReadLine()) != null || !line.StartsWith("Country"))
                         {
                             if (line is null) break;
+                            if (line.StartsWith("Country")) break;
                             list = line.Split(':');
-                            Country nb = new Country(list[0], int.Parse(list[1]));
-                            foreach (string s in list)
-                            {
-                                MessageBox.Show(s);
-                            }
-                            //nb.name = list[0];
-                            //nb.color = int.Parse(list[1]);
+                            Country nb = new Country();
+                            //foreach (string s in list)
+                            //{
+                            //    MessageBox.Show(s);
+                            //}
+                            nb.name = list[0];
+                            nb.color = int.Parse(list[1]);
                             country.AddNeighbor(nb);
                         }
                         CountryList.Add(country);
