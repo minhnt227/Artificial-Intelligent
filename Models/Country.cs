@@ -56,5 +56,19 @@ namespace Graph_Coloring.Models
             }
             else return false;
         }
+        public bool CanColor()
+        {
+            if (color != 0) return false;
+            else
+            {
+                foreach (Country country in neighbor)  //if a neighbor is colored with the biggest color, skip, else
+                {
+                    if (country.color == Graph.max) return false;
+                    else continue;
+                }
+                return true;
+            } 
+                
+        }
     }
 }

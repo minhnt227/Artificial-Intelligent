@@ -63,5 +63,11 @@ namespace Graph_Coloring
             Graph.SaveFile();
             MessageBox.Show("OK!", "Save Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void btnColor_Click(object sender, EventArgs e)
+        {
+            Graph.GraphColoring();
+            MessageBox.Show("OK!", "Color Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

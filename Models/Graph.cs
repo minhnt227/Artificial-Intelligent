@@ -11,6 +11,7 @@ namespace Graph_Coloring.Models
     public static class Graph
     {
         public static int n; //number of countries
+        public static int max = 1; //maximum number of colors used in graph, start with 1
         public static List<Country> CountryList = new List<Country>();
 
         public static void CreateGraph()
@@ -37,8 +38,10 @@ namespace Graph_Coloring.Models
                     {
                         writer.WriteLine("\t\t    {0} : {1}", nb.name, nb.color);
                     }
+                    
 
                 }
+                writer.WriteLine("MAXIMUM COLORS: {0}", Graph.max);
                 writer.Close();
                 output.Close();
             }
@@ -56,6 +59,33 @@ namespace Graph_Coloring.Models
         {
             CountryList.Sort(new NeighborComparer());
             CountryList.Reverse();
+        }
+        //Check if a graph is fully colored or not 
+        public static bool IsFullyColored()
+        {
+            foreach (Country country in CountryList)
+            {
+                if (country.color == 0) return false;
+                else continue;
+            }    
+            return true;
+        }
+        public static void GraphColoring()
+        {
+            while (!IsFullyColored())
+            {
+                foreach (Country country in CountryList)
+                {
+                    if (country.CanColor())
+                    {
+                        country.color = max;
+                        continue;
+                    }
+                    continue;
+                }
+                max++;
+            }
+            max--;
         }
     }
 }

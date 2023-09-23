@@ -35,8 +35,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.graphBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnSave = new System.Windows.Forms.Button();
+            this.graphBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnColor = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.graphBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,10 +96,6 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // graphBindingSource
-            // 
-            this.graphBindingSource.DataSource = typeof(Graph_Coloring.Models.Graph);
-            // 
             // btnSave
             // 
             this.btnSave.Location = new System.Drawing.Point(117, 389);
@@ -109,11 +106,26 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // graphBindingSource
+            // 
+            this.graphBindingSource.DataSource = typeof(Graph_Coloring.Models.Graph);
+            // 
+            // btnColor
+            // 
+            this.btnColor.Location = new System.Drawing.Point(51, 49);
+            this.btnColor.Name = "btnColor";
+            this.btnColor.Size = new System.Drawing.Size(151, 44);
+            this.btnColor.TabIndex = 10;
+            this.btnColor.Text = "Color this graph";
+            this.btnColor.UseVisualStyleBackColor = true;
+            this.btnColor.Click += new System.EventHandler(this.btnColor_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(688, 468);
+            this.Controls.Add(this.btnColor);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label2);
@@ -140,6 +152,7 @@
         private System.Windows.Forms.BindingSource graphBindingSource;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnColor;
     }
 }
 
