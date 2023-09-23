@@ -12,7 +12,7 @@ namespace Graph_Coloring.Models
         {
             name = string.Empty;
             color = 0;
-            neighbor = null;
+            neighbor = new List<Country>(); ;
         }
 
         public Country(string name, int color, List<Country> neighbor)
