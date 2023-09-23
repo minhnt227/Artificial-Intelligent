@@ -36,6 +36,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.graphBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnSave = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.graphBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,11 +99,22 @@
             // 
             this.graphBindingSource.DataSource = typeof(Graph_Coloring.Models.Graph);
             // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(117, 389);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(105, 36);
+            this.btnSave.TabIndex = 9;
+            this.btnSave.Text = "SaveGraph";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(688, 468);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -127,6 +139,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.BindingSource graphBindingSource;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnSave;
     }
 }
 

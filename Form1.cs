@@ -57,5 +57,11 @@ namespace Graph_Coloring
             listBox1.Items.AddRange(Graph.CountryList.ToArray());
             listBox1.DisplayMember = "name";
         }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            Graph.SaveFile();
+            MessageBox.Show("OK!", "Save Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

@@ -54,7 +54,9 @@ namespace Graph_Coloring
         {
             foreach (Country c in checkNeighbor.CheckedItems)
             {
-                CDetail.AddNeighbor(c);
+                if (!CDetail.neighbor.Contains(c))
+                    CDetail.AddNeighbor(c);
+                else continue;
             }
             CDetail.color = int.Parse(txtcolorD.Text);
             CDetail.name = txtNameD.Text;

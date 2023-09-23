@@ -84,6 +84,7 @@
     </Compile>
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\Graph.cs" />
+    <Compile Include="Models\NeighborComparer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="detail.resx">
