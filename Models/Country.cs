@@ -45,8 +45,12 @@ namespace Graph_Coloring.Models
         }
         public void AddNeighbor(Country country)
         {
-            neighbor.Add(country);
-            country.neighbor.Add(this);
+            if (!CheckNeighbor(country))
+            {
+                neighbor.Add(country);
+                country.neighbor.Add(this);
+            }
+            else return;
         }
         public bool CheckNeighbor(Country country)
         {
@@ -61,6 +65,7 @@ namespace Graph_Coloring.Models
             if (color != 0) return false;
             else
             {
+                if (neighbor.Count == 0) return true;   //standalone country
                 foreach (Country country in neighbor)  //if a neighbor is colored with the biggest color, skip, else
                 {
                     if (country.color == Graph.max) return false;

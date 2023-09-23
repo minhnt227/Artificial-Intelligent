@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Graph_Coloring.Models
 {
@@ -23,12 +24,12 @@ namespace Graph_Coloring.Models
             }
         }
         //Save current map to a MapData file
-        public static void SaveFile()
+        public static void SaveFile(string filename)
         {
             SortGraph();
             try
             {
-                FileStream output = new FileStream("MapData.txt",FileMode.OpenOrCreate,FileAccess.Write);
+                FileStream output = new FileStream(filename, FileMode.OpenOrCreate,FileAccess.Write);
                 StreamWriter writer = new StreamWriter(output);
                 foreach (Country c in CountryList)
                 {
@@ -47,12 +48,54 @@ namespace Graph_Coloring.Models
             }
             catch (IOException ex)
             {
-                Console.WriteLine(ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
         // ??? :D ???
         public static void LoadFile()
         {
+            string filename = "MapData";
+            try
+            {
+                FileStream input = new FileStream (filename, FileMode .Open, FileAccess.Read);
+                StreamReader reader = new StreamReader(input);
+                string line;
+                while ((line =  reader.ReadLine()) != null)
+                {
+                    //if (line.Contains("Neighbor")) continue;
+                    //else 
+                    if (line.StartsWith("Country"))
+                    {
+                        Country country = new Country(); 
+                        string[] list = line.Split(' ');
+                        country.name = list[1]; country.color = int.Parse(list[3]);
+                        line = reader.ReadLine();
+                        while ((line = reader.ReadLine()) != null && !line.StartsWith("Country"))
+                        {
+                            if (line is null) break;
+                            list = line.Split(':');
+                            Country nb = new Country(list[0], int.Parse(list[1]));
+                            foreach (string s in list)
+                            {
+                                MessageBox.Show(s);
+                            }
+                            //nb.name = list[0];
+                            //nb.color = int.Parse(list[1]);
+                            country.AddNeighbor(nb);
+                        }
+                        CountryList.Add(country);
+                        
+                    }
+                    
+                }
+                MessageBox.Show(CountryList.ToArray().ToString());
+                input.Close();
+                reader.Close();
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
         }
         public static void SortGraph()

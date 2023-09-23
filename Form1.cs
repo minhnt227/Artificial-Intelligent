@@ -60,14 +60,25 @@ namespace Graph_Coloring
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Graph.SaveFile();
+            if (Graph.CountryList is null) return;
+            Graph.SaveFile("MapData");
             MessageBox.Show("OK!", "Save Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnColor_Click(object sender, EventArgs e)
         {
             Graph.GraphColoring();
+            Graph.SaveFile("MapColored");
             MessageBox.Show("OK!", "Color Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
+
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
+            Graph.LoadFile();
+            listBox1.Items.Clear();
+            listBox1.Items.AddRange(Graph.CountryList.ToArray());
+            listBox1.DisplayMember = "name";
         }
     }
 }

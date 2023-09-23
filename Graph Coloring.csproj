@@ -103,6 +103,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Models\MapData" />
     <None Include="Properties\DataSources\Graph_Coloring.Models.Country.datasource" />
     <None Include="Properties\DataSources\Graph_Coloring.Models.Graph.datasource" />
     <None Include="Properties\Settings.settings">
@@ -129,6 +130,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

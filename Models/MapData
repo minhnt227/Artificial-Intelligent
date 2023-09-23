@@ -1,0 +1,47 @@
+Country: F .	Color: 0
+		Neighbor List: 
+		    C : 0
+		    D : 0
+		    E : 0
+		    G : 0
+		    Z : 0
+Country: C .	Color: 0
+		Neighbor List: 
+		    A : 0
+		    B : 0
+		    D : 0
+		    E : 0
+		    F : 0
+Country: E .	Color: 0
+		Neighbor List: 
+		    C : 0
+		    F : 0
+		    B : 0
+		    Z : 0
+Country: D .	Color: 0
+		Neighbor List: 
+		    C : 0
+		    F : 0
+		    A : 0
+		    G : 0
+Country: Z .	Color: 0
+		Neighbor List: 
+		    F : 0
+		    E : 0
+		    G : 0
+Country: G .	Color: 0
+		Neighbor List: 
+		    F : 0
+		    D : 0
+		    Z : 0
+Country: B .	Color: 0
+		Neighbor List: 
+		    C : 0
+		    E : 0
+		    A : 0
+Country: A .	Color: 0
+		Neighbor List: 
+		    C : 0
+		    D : 0
+		    B : 0
+MAXIMUM COLORS: 1
