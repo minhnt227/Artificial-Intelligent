@@ -29,7 +29,6 @@ namespace Graph_Coloring
                 MessageBox.Show("Please input something first");
             }
             A = new Country(txtName.Text);
-            Graph.n++;
             Graph.CountryList.Add(A);
             listBox1.Items.AddRange(Graph.CountryList.ToArray());
             listBox1.DisplayMember = "name";

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.IO;
@@ -11,18 +12,10 @@ namespace Graph_Coloring.Models
 {
     public static class Graph
     {
-        public static int n; //number of countries
         public static int max = 1; //maximum number of colors used in graph, start with 1
         public static List<Country> CountryList = new List<Country>();
 
-        public static void CreateGraph()
-        {
-            for (int i = 0; i < n; i++)
-            {
-                Country country = new Country();
-                CountryList.Add(country);
-            }
-        }
+        
         //Save current map to a MapData file
         public static void SaveFile(string filename)
         {
@@ -33,8 +26,13 @@ namespace Graph_Coloring.Models
                 StreamWriter writer = new StreamWriter(output);
                 foreach (Country c in CountryList)
                 {
+
+                    //foreach (Country s in c.neighbor)
+                    //{
+                        MessageBox.Show(c.name);
+                    //}
                     writer.WriteLine("Country: {0} .\tColor: {1}",c.name , c.color);
-                    writer.WriteLine("\t\tNeighbor List: ");
+                    writer.WriteLine("\t\tNeighbor List ");
                     foreach (Country nb in c.neighbor)
                     {
                         writer.WriteLine("\t\t    {0} : {1}", nb.name, nb.color);
@@ -54,42 +52,62 @@ namespace Graph_Coloring.Models
         // ??? :D ???
         public static void LoadFile()
         {
-            string filename = "MapData";
+            string filename = "MapSource";
             try
             {
                 FileStream input = new FileStream (filename, FileMode .Open, FileAccess.Read);
                 StreamReader reader = new StreamReader(input);
                 string line;
+                Country c = new Country();
                 while ((line =  reader.ReadLine()) != null)
                 {
-                    //if (line.Contains("Neighbor")) continue;
-                    //else 
-                    if (line.StartsWith("Country"))
-                    {
-                        Country country = new Country(); 
-                        string[] list = line.Split(' ');
-                        country.name = list[1]; country.color = int.Parse(list[3]);
-                        line = reader.ReadLine();
-                        while ((line = reader.ReadLine()) != null || !line.StartsWith("Country"))
-                        {
-                            if (line is null) break;
-                            if (line.StartsWith("Country")) break;
-                            list = line.Split(':');
-                            Country nb = new Country();
-                            //foreach (string s in list)
-                            //{
-                            //    MessageBox.Show(s);
-                            //}
-                            nb.name = list[0];
-                            nb.color = int.Parse(list[1]);
-                            country.AddNeighbor(nb);
-                        }
-                        CountryList.Add(country);
-                        
-                    }
                     
+                    if (line.Contains("Country")) //create an empty country list
+                    {
+                        string[] list = line.Split(' ');
+                        
+                        c = Find(list[1].Trim());
+                        
+                        if (c != null)
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            Country country = new Country(list[1].Trim(), int.Parse(list[3]));
+                            CountryList.Add(country);
+                            c = country;
+                            continue;
+                        }
+                    }
+                    else
+                    if (line.Contains("Neighbor")) continue;
+                    else
+                    if (line.Contains("MAXIMUM"))
+                    {
+                        string[] list = line.Split(' ');
+                        max = int.Parse(list[2]);
+                        continue; 
+                    }
+                    else
+                    //////////////////////////////////////////////////////////
+                    {
+                        string[] nblist = line.Split(':');
+                        
+                        Country nb;
+                        if ((nb = Find(nblist[0].Trim()) ) != null)
+                        {
+                            if (c.CheckNeighbor(nb)) continue;
+                            c.AddNeighbor(nb);
+                        }
+                        else
+                        {
+                            nb = new Country(nblist[0].Trim(), int.Parse(nblist[1]));
+                            CountryList.Add(nb);
+                            c.AddNeighbor(nb);
+                        }
+                    }
                 }
-                MessageBox.Show(CountryList.ToArray().ToString());
                 input.Close();
                 reader.Close();
             }
@@ -130,6 +148,14 @@ namespace Graph_Coloring.Models
                 max++;
             }
             max--;
+        }
+        public static Country Find(string name)
+        {
+            foreach (Country country in CountryList) 
+            {
+                if (country.name == name) return country;
+            }
+            return null;
         }
     }
 }

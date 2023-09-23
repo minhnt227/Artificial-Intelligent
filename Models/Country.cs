@@ -26,12 +26,14 @@ namespace Graph_Coloring.Models
         {
             this.name = name ?? throw new ArgumentNullException(nameof(name));
             this.color = color;
+            neighbor = new List<Country>(); ;
         }
 
         public Country(string name)
         {
             this.name = name ?? throw new ArgumentNullException(nameof(name));
             color = 0;
+            neighbor = new List<Country>(); ;
         }
         
         public string name { get; set; }
